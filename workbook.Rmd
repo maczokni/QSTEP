@@ -725,6 +725,18 @@ Anyway that is all I have for you now. You will of course also have to save your
 
 Here is an [excellent video](https://www.youtube.com/watch?v=qwmPU-LWpGU) you can watch that will walk you through how to export your map using this print composer. 
 
+You should probably watch that, but just as a note here are some useful buttons: 
+
+
+***
+
+
+![](/Users/reka/Desktop/QSTEP/imgs/print_comp_labels.png)
+
+
+***
+
+
 
 #Parting words
 
