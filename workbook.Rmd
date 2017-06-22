@@ -46,10 +46,10 @@ Attribute has become the preferred term for any recorded characteristoc or prope
 
 ###Objects
 
-In spatial analysis it is customary to refer to places as objects. These objects can be a whole country, or a road. In studies of climate change, the objects of interest might be weather stations of minimal extent, and will be represented as points. On the other hand amy studies of social or economic patterns may need to consider the two-dimenstional extent of places, which will therefore be represented as areas. These representations of the world are part of what is called the vector data model: A representation of the world using points, lines, and polygons. Vector models are useful for storing data that has discrete boundaries, such as country borders, land parcels, and streets. This is made up of points, lines, and areas (polygons): 
+In spatial analysis it is customary to refer to places as objects. These objects can be a whole country, or a road. In studies of climate change, the objects of interest might be weather stations of minimal extent, and will be represented as points. On the other hand, studies of social or economic patterns may need to consider the two-dimenstional extent of places, which will therefore be represented as areas. These representations of the world are part of what is called the vector data model: A representation of the world using points, lines, and polygons. Vector models are useful for storing data that have discrete boundaries, such as country borders, land parcels, and streets. This is made up of points, lines, and areas (polygons): 
 
 - Points
-    + Points are pairs of coordinates, in latitude/lngitude or some other standard system
+    + Points are pairs of coordinates, in latitude/longitude or some other standard system
 - Lines
     + Lines are ordered sequences of points connected by straight lines
 - Areas (polygons)
@@ -80,7 +80,7 @@ The process of creating map projections can be visualised by positioning a light
 
 With the help of coordinate reference systems (CRS) every place on the earth can be specified by a set of three numbers, called coordinates. In general CRS can be divided into projected coordinate reference systems (also called Cartesian or rectangular coordinate reference systems) and geographic coordinate reference systems.
 
-The use of Geographic Coordinate Reference Systems is very common. They use degrees of latitude and longitude and sometimes also a height value to describe a location on the earth’s surface. The most popular is called WGS 84. This is the one you will most likely be using, and if you get your data in latitude and longitude, then this is the CRS you are working in. It is also possible that you will be using a projected CRS. This two-dimensional coordinate reference system is commonly defined by two axes. At right angles to each other, they form a so called XY-plane. The horizontal axis is normally labelled X, and the vertical axis is normally labelled Y. Working with data in the UK, you are most likely to be using what is often called British National Grid (BNG). The Ordnance Survey National Grid reference system is a system of geographic grid references used in Great Britain, different from using Latitude and Longitude. In this case, points will be defined by "Easting" and "Northing" rather than "Longitude" and "Latitude".  It basically divides the UK into a series of squares, and uses references to these to locate something. The most common usage is the six figure grid reference, employing three digits in each coordinate to determine a 100 m square. For example, the grid reference of the 100 m square containing the summit of Ben Nevis is NN 166 712. Grid references may also be quoted as a pair of numbers: eastings then northings in metres, measured from the southwest corner of the SV square. For example, the grid reference for Sullom Voe oil terminal in the Shetland Islands may be given as HU396753 or 439668,1175316
+The use of Geographic Coordinate Reference Systems is very common. They use degrees of latitude and longitude and sometimes also a height value to describe a location on the earth’s surface. The most popular is called WGS 84. This is the one you will most likely be using, and if you get your data in latitude and longitude, then this is the CRS you are working in. It is also possible that you will be using a projected CRS. This two-dimensional coordinate reference system is commonly defined by two axes. At right angles to each other, they form a so called XY-plane. The horizontal axis is normally labelled X, and the vertical axis is normally labelled Y. Working with data in the UK, you are most likely to be using British National Grid (BNG). The Ordnance Survey National Grid reference system is a system of geographic grid references used in Great Britain, different from using Latitude and Longitude. In this case, points will be defined by "Easting" and "Northing" rather than "Longitude" and "Latitude".  It basically divides the UK into a series of squares, and uses references to these to locate something. The most common usage is the six figure grid reference, employing three digits in each coordinate to determine a 100 m square. For example, the grid reference of the 100 m square containing the summit of Ben Nevis is NN 166 712. Grid references may also be quoted as a pair of numbers: eastings then northings in metres, measured from the southwest corner of the SV square. For example, the grid reference for Sullom Voe oil terminal in the Shetland Islands may be given as HU396753 or 439668,1175316
 
 ![BNG](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Ordnance_Survey_National_Grid.svg/500px-Ordnance_Survey_National_Grid.svg.png)
 
@@ -115,7 +115,7 @@ If you are using your own laptop, or the organisation gives you the option of ch
 
 ##QGIS
 
-The main tool we will be using is QGIS. QGIS functions as geographic information system (GIS) software, allowing users to analyze and edit spatial information, in addition to composing and exporting graphical maps. Throughout this tutorial I assume that you have some experience using QGIS (or a similar GIS) and you are familiar with spatial data handling and analysis. If you are interested, you can learn more about QGIS here:
+The main tool we will be using is QGIS. QGIS functions as geographic information system (GIS) software, allowing users to analyze and edit spatial information, in addition to composing and exporting graphical maps. If you are interested, you can learn more about QGIS here:
 
 - [About QGIS](http://www.qgis.org/en/site/about/index.html)
 - [See some case studies](http://www.qgis.org/en/site/about/case_studies/index.html)
@@ -165,9 +165,10 @@ We will return to this shortly. But let's step away for a moment, and talk about
 
 You will often need a boundary shapefile for your data analysis. Sometimes you will be given spatial data to begin with, such as a shapefile, or point coordinates with latitudes and longitudes (or eastings and northings). But other times you might have to find this yourself, and join the non-spatial data to these. This latter case is what the first part of this tutorial will demonstrate. In this case, you will have to source the spatial data yourself. 
 
-You can acquire spatial data from various sources. An example is Census Boundary Data. You can read more about that [here](https://census.ukdataservice.ac.uk/use-data/guides/boundary-data). "Boundary data are a digitised representation of the underlying geography of the census". Census Geography is often used in research and spatial analysis because it is divided into units based on population counts, created to creat comparable units, rather than administrative boundaries such as wards or police force areas. However depending on your research question and the context for your analysis, you might be using different units. The hierarchy of the census geographies goes from Country to Local Authority to Middle Layer Super Output Area (MSOA) to Lower Layer Super Output Area (LSOA) to Output Area: 
+You can acquire spatial data from various sources. An example is Census Boundary Data. You can read more about that [here](https://census.ukdataservice.ac.uk/use-data/guides/boundary-data). "Boundary data are a digitised representation of the underlying geography of the census". Census Geography is often used in research and spatial analysis because it is divided into units based on population counts, created to form comparable units, rather than administrative boundaries such as wards or police force areas. However depending on your research question and the context for your analysis, you might be using different units. The hierarchy of the census geographies goes from Country to Local Authority to Middle Layer Super Output Area (MSOA) to Lower Layer Super Output Area (LSOA) to Output Area: 
 
 ![](https://census.ukdataservice.ac.uk/media/98325/maps_geography_types.png)
+
 
 Here we will get some boundaries for Manchester. Let's use the LSOA level. These are geographical regions designed to be more stable over time and consistent in size than existing administrative and political boundaries. LSOAs comprise, on average, 600 households that are combined on the basis of spatial proximity and homogeneity of dwelling type and tenure. Neighbourhoods are often operationalised as LSOAs.
 
@@ -177,7 +178,11 @@ So to get some boundary data, you can use the UK Data Service website. There is 
 When you get to the link, you will see on the top there is some notification to help you with the boundary data selector. If you are feeling unsure at any point, feel free to click on that help to guide you. 
 
 For now, let's focus on the selector options. Here you can choose the country you want to select shapefiles for. We select "England". You can also choose the type of geography we want to use. Here we select "Statistical Building Block", as discussed above. And finally you can select when you want it for. If you are working with historical data, it makes sense to find boundaries that match the timescale for your data. Here we will be dealing with contemporary data, and therefore we want to be able to use the newest available boundary data. 
+
+
 ***
+
+
 ![](/Users/reka/Desktop/QSTEP/imgs/boundary_selector_1.png) 
 
 Once you have selected these options, click on the "Find" button. That will populate the box below: 
@@ -527,7 +532,7 @@ This is the coordinate system that anything with latitude/longitude coorinated w
 
 So what does this mean. Well actually our two spatial layers are on two different coordinate systems. This can cause problems when we try to carry out spatial manipulations, such as count the number of points in each neighbourhood. So before we move on to that, we need to do some reprojections. 
 
-##Reporojection
+##Reprojection
 
 So reprojection is very easy in QGIS. All you have to do, is double click on the layer you want to change, and select CRS, and select a new one from the dropdown menu. Sometimes however this has strange results, and also if you want to use this layer as such again, it might be worth saving a new spatial layer with your new projection. 
 
