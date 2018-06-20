@@ -1,9 +1,10 @@
 ---
 title: "QGIS Tutorial for QStep Students"
 author: "Reka Solymosi"
-date: "19/06/2017"
+date: "19/06/2018"
 output: html_document
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -23,9 +24,9 @@ I strongly recommend that you consult some resources, such as these books:
 A topic that this tutorial does not cover is that of **spatial relationships**. The [First Law of Geography, according to Waldo Tobler](http://www.tandfonline.com/doi/pdf/10.1111/j.1467-8306.2004.09402005.x), is that "everything is related to everything else, but near things are more related than distant things." This first law is the foundation of the fundamental concepts of spatial dependence and spatial autocorrelation. These concepts tend to account for spatial dependence in data, by using things like spatial weighting. We simply do not have time to cover these here, but it might be worth reading a bit around these concepts if you will be dealing with spatial data at all during your internship. 
 
 
-#A quick introduction of terms
+# A quick introduction of terms
 
-##Geospatial Perspective - The Basics
+## Geospatial Perspective - The Basics
 
 Geospatial analysis provides a distinct perspective on the world, a unique lens through which to examine events, patterns, and processes that operate on or near the surface of our planet. Ultimately geospatial analysis concerns what happens where, and makes use of geographic information that links features and phenomena on the Earth's surface to their locations. 
 
@@ -36,15 +37,15 @@ We can talk about a few different concepts when it comes to spatial information.
 - Objects
 
 
-###Place
+### Place
 
 At the center of all spatial analysis is the concept of *place*. People identify with places of various sizes and shapes, from the room with the parcel of land, to the neighbourhood, to the city, the country, the state or the nation state. Plcaes often have names, and people use these to talk about and distinguesh names. Names can be official. Places also change continually as people move. The basis of rigorous and precise definition of place is a coordinate system, a set of measurements that allows place to be specified unambiguously and in a way that is meaningful to everyone. 
 
-###Attributes
+### Attributes
 
 Attribute has become the preferred term for any recorded characteristoc or property of a place. A place's name is an obvious example of an attribute. But there can be other pices of information, such as numer of crimes in a neighbourhood, or the GDP of a country. Within GIS the term 'attributes' usually refers to records in a data table associated with individual features in a vector map or cells in a grid (raster or image file). These data behave exactly as data you have encountered in your data analysis courses. The rows represent observations, and the columns represent variables. The variables can be numeric or categorical, and depending on what they are, you can apply different methods to making sense of them. 
 
-###Objects
+### Objects
 
 In spatial analysis it is customary to refer to places as objects. These objects can be a whole country, or a road. In studies of climate change, the objects of interest might be weather stations of minimal extent, and will be represented as points. On the other hand, studies of social or economic patterns may need to consider the two-dimenstional extent of places, which will therefore be represented as areas. These representations of the world are part of what is called the vector data model: A representation of the world using points, lines, and polygons. Vector models are useful for storing data that have discrete boundaries, such as country borders, land parcels, and streets. This is made up of points, lines, and areas (polygons): 
 
@@ -60,12 +61,12 @@ In spatial analysis it is customary to refer to places as objects. These objects
 
 Objects can also be Raster data. Raster data is made up of pixels (or cells), and each pixel has an associated value. Simplifying slightly, a digital photograph is an example of a raster dataset where each pixel value corresponds to a particular colour. In GIS, the pixel values may represent elevation above sea level, or chemical concentrations, or rainfall etc. The key point is that all of this data is represented as a grid of (usually square) cells. You will most likely be dealing with vector data in your internships, so we will be focusing on these. 
 
-###Maps
+### Maps
 
 Historically maps have been the primary means to store and communicate spatial data. Objects and their attributes can be readily depicted, and the human eye can quickly discern patterns and anomalies in a well-designed map. 
 
 
-###Map projections
+### Map projections
 
 Map projections try to portray the surface of the earth or a portion of the earth on a flat piece of paper or computer screen. A coordinate reference system (CRS) then defines, with the help of coordinates, how the two-dimensional, projected map in your GIS is related to real places on the earth. The decision as to which map projection and coordinate reference system to use, depends on the regional extent of the area you want to work in, on the analysis you want to do and often on the availability of data. 
 
@@ -75,7 +76,7 @@ A traditional method of representing the earth’s shape is the use of globes. W
 
 The process of creating map projections can be visualised by positioning a light source inside a transparent globe on which opaque earth features are placed. Then project the feature outlines onto a two-dimensional flat piece of paper. Different ways of projecting can be produced by surrounding the globe in a cylindrical fashion, as a cone, or even as a flat surface. Each of these methods produces what is called a map projection family. Therefore, there is a family of planar projections, a family of cylindrical projections, and another called conical projections [see figure_projection_families](https://docs.qgis.org/2.8/en/_images/projection_families.png)
 
-![figure_projection_families](http://docs.qgis.org/2.8/en/_images/projection_families.png)
+![figure_projection_families](https://docs.qgis.org/2.8/en/_images/projection_families.png)
 
 
 With the help of coordinate reference systems (CRS) every place on the earth can be specified by a set of three numbers, called coordinates. In general CRS can be divided into projected coordinate reference systems (also called Cartesian or rectangular coordinate reference systems) and geographic coordinate reference systems.
@@ -87,15 +88,15 @@ The use of Geographic Coordinate Reference Systems is very common. They use degr
 
 This will be important later on when we are linking data from different projections, or when you look at your map and you try to figure out why it might look "squished". 
 
-###Networks
+### Networks
 
 We already mentioned lines that constitute objects of spatial data, such as streets, roads, railroads, etc. Networks constitute one-dimensional structures embedded in two or three dimensions. Discrete point objects may be distributed on the netowkr, representing phenomena such as landmarks, or observation points. Mathematically, a network forms a graph, and many techniques developed for graphs have application to networks. These include various ways of measuring a network's connectivity, or of finding the shortest path between pairs of points on a network. You can have a look at the [lesson on network analysis in the QGIS documentation](https://docs.qgis.org/2.2/en/docs/training_manual/vector_analysis/network_analysis.html)
 
-###Density estimation
+### Density estimation
 
 One of the more useful concepts in spacial analysis is density - the density of humans in a crowded city, or the density of retail stores in a shopping centre. Mathematically, the density of some kind of object is calculated by counting the number of such objects in an area, and dividing by the size of the area. To read more about this, I recommend [Silverman, Bernard W. Density estimation for statistics and data analysis. Vol. 26. CRC press, 1986.](https://books.google.co.uk/books?id=e-xsrjsL7WkC&dq=silverman+density+estimation+for+statistics&lr=&source=gbs_navlinks_s)
 
-##Summary
+## Summary
 
 Right so hopefully this gives you a few things to think about. Be sure that you are confident to know about: 
 
@@ -107,13 +108,13 @@ And if you're interested you can read up about density and networks. Again we ar
 
 
 
-#The software
+# The software
 
 Before we start, let's familiarise ourselves with the software we will be using. Now it's possible that you will enter a workplace where they will be using different systems. Many government agencies might be using something called [MapInfo](https://en.wikipedia.org/wiki/MapInfo_Professional). Agencies with a bit more money are likely to be using [ESRI Arc GIS](https://en.wikipedia.org/wiki/ArcGIS). If you are forced to use these (and if there are people using this and there is support where you are, then you might as well) then don't worry, the concepts are more or less the same. You will be able to search the help function for the same terms, or look through any documentation available and search through that on how to exactly carry out what it is that you want to do. However the issue with these GIS is that they are proprietary, and they cost a lot of money to use. They also have paid-for training and support, which you cannot openly access. QGIS on the other hand is entirely free, and because it's open source, there is documentation and support available everywhere. If you are not sure how to do something in QGIS, all you have to do is GOOGLE IT, and there will be many useful answers for you to browse through and fix your issue. Similarly if you get an error message, just google it, and you will find help. 
 
 If you are using your own laptop, or the organisation gives you the option of choosing what you want to use, you can easily make a case for QGIS as it is totally free and therefore gives no cost to the organisation, or to you if you want to use it on your own laptop. Also because it is open source, anyone can contribute, and so you can have these plugins, which people write to help them sovle very specific problems. But more about this in the next section, where I tell you all about QGIS.
 
-##QGIS
+## QGIS
 
 The main tool we will be using is QGIS. QGIS functions as geographic information system (GIS) software, allowing users to analyze and edit spatial information, in addition to composing and exporting graphical maps. If you are interested, you can learn more about QGIS here:
 
@@ -122,7 +123,7 @@ The main tool we will be using is QGIS. QGIS functions as geographic information
 - [Browse some tutorials](http://www.qgistutorials.com/en/)
 
 
-##Plugins
+## Plugins
 
 QGIS has a variety of plugins that you can download, and use for your work. Plugins in QGIS add useful features to the software. Plugins are written by QGIS developers and other independent users who want to extend the core functionality of the software. These plugins are made available in QGIS for all the users.
 
@@ -130,7 +131,7 @@ You can see a tutorial for installing and using plugins [here](http://www.qgistu
 
 While we don't use plugins in tutorials, sometimes when you might be googling how to do something in QGIS the answer might be to use the "such and such plugin". In that case you will have to install the plugin first, to use it!
 
-#Getting Practical
+# Getting Practical
 Right, let's make some maps! 
 
 
@@ -152,7 +153,7 @@ First things first, you have to create a folder where you will work. It's import
 
 Then, let's open up the QGIS software. 
 
-![](/Users/reka/Desktop/QSTEP/imgs/qgis_1.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/qgis_1.png)
 
 
 Take a moment to have a look at this, you can see there are quite a lot of buttons there on the side and the top. It might be worth going through [this short video](https://www.youtube.com/watch?v=Z87aAz3M8-0) that outlines the interfact for you quickly (and gives some more tips about why QGIS is a great choice for GIS)
@@ -161,7 +162,7 @@ Take a moment to have a look at this, you can see there are quite a lot of butto
 We will return to this shortly. But let's step away for a moment, and talk about how to get some data.
 
 
-##Find a shapefile
+## Find a shapefile
 
 You will often need a boundary shapefile for your data analysis. Sometimes you will be given spatial data to begin with, such as a shapefile, or point coordinates with latitudes and longitudes (or eastings and northings). But other times you might have to find this yourself, and join the non-spatial data to these. This latter case is what the first part of this tutorial will demonstrate. In this case, you will have to source the spatial data yourself. 
 
@@ -170,7 +171,7 @@ You can acquire spatial data from various sources. An example is Census Boundary
 ![](https://census.ukdataservice.ac.uk/media/98325/maps_geography_types.png)
 
 
-Here we will get some boundaries for Manchester. Let's use the LSOA level. These are geographical regions designed to be more stable over time and consistent in size than existing administrative and political boundaries. LSOAs comprise, on average, 600 households that are combined on the basis of spatial proximity and homogeneity of dwelling type and tenure. Neighbourhoods are often operationalised as LSOAs.
+Here we will get some boundaries for Manchester. Let's use the Lower Super Ooutput Area (LSOA) level. LSOAs are geographical regions designed to be more stable over time and consistent in size than existing administrative and political boundaries. LSOAs comprise, on average, 600 households that are combined on the basis of spatial proximity and homogeneity of dwelling type and tenure. Neighbourhoods are often operationalised as LSOAs.
 
 So to get some boundary data, you can use the UK Data Service website. There is a simple [Boundary Data Selector](https://borders.ukdataservice.ac.uk/bds.html)(link text: https://borders.ukdataservice.ac.uk/bds.html)
 
@@ -183,13 +184,13 @@ For now, let's focus on the selector options. Here you can choose the country yo
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/boundary_selector_1.png) 
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/boundary_selector_1.png) 
 
 Once you have selected these options, click on the "Find" button. That will populate the box below: 
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/boundary_selector_2.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/boundary_selector_2.png)
 
 ***
 
@@ -200,7 +201,7 @@ Once you've made your choice, click on "List Areas". This will now populate the 
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/boundary_selector_3.png) 
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/boundary_selector_3.png) 
 
 
 ***
@@ -212,7 +213,7 @@ Once you've made your decision click on the "Extract Boundary Data" button. You 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/wait.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/wait.png)
 
 
 ***
@@ -225,7 +226,7 @@ When your data is read, you will see the following message:
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/download.png)  
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/download.png)  
 
 
 ***
@@ -237,7 +238,7 @@ You have to right click on the "BoundaryData.zip", and hit Save Target as on a P
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/save_link_as.png) 
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/save_link_as.png) 
 
 
 ***
@@ -248,7 +249,7 @@ Navigate to the folder you have created for this analysis, and save the .zip fil
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/folder_contents.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/folder_contents.png)
 
 
 ***
@@ -270,7 +271,7 @@ But then you will also notice that there are 4 files with the same name "england
 
 Sometimes there might be more files associated with your shapefile as well, but we will not cover them here. 
 
-##Getting spatial data into QGIS
+## Getting spatial data into QGIS
 
 There are two ways to open up a vector shapefile in QGIS. One is to use the "Add Vector Layer" button on the top left hand side:
 
@@ -278,7 +279,7 @@ There are two ways to open up a vector shapefile in QGIS. One is to use the "Add
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/openVector.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/openVector.png)
 
 
 ***
@@ -290,7 +291,7 @@ This will open up a dialogue box:
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/dialogue_box.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/dialogue_box.png)
 
 
 ***
@@ -302,7 +303,7 @@ Where you can click on the "Browse" button and navigate to your shapefile, and s
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/browse_to_file.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/browse_to_file.png)
 
 
 ***
@@ -314,7 +315,7 @@ Select the file, click on open, and then you will be taken back to the dialogue 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/select_and_click_ok.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/select_and_click_ok.png)
 
 
 ***
@@ -326,14 +327,14 @@ Now you will be able to see your shapefile! Yay!
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/see_shape_appear.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/see_shape_appear.png)
 
 ***
 
 
 The other way is to very simply drag and drop the shapefile into the QGIS map window. Again, make sure that you are doing this with the file that has the `.shp` extension!
 
-##Find out about your shapefile
+## Find out about your shapefile
 
 Once you have your shapefile in the QGIS environment, you can find out some information about it. You can double click its name in your layers pane, to open up a new window with this information. 
 
@@ -341,19 +342,19 @@ Once you have your shapefile in the QGIS environment, you can find out some info
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/click_layer_name.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/click_layer_name.png)
 
 
 ***
 
 
-If you click on the General tab, it tells you some information about your layer, for example it tells you the CRS. You can see here that the CRS is British National Grid. If it weren't we could change it in this window as well, using the drop down menu here. 
+If you click on the Source tab, it tells you some information about your layer, for example it tells you the CRS. You can see here that the CRS is British National Grid. If it weren't we could change it in this window as well, using the drop down menu here. 
 
 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/general_tab.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/general_tab.png)
 
 
 ***
@@ -366,7 +367,7 @@ So close the window, and this time right click the layer name, and choose "open 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/open_attribute_table.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/open_attribute_table.png)
 
 
 ***
@@ -377,7 +378,7 @@ This will open up a table that should look familiar. As discussed, your rows are
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/attr_tbl_view.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/attr_tbl_view.png)
 
 
 ***
@@ -390,7 +391,7 @@ You can also get information from the shapefile. By clicking on the little infor
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/info_tooltip.gif)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/info_tooltip.gif)
 
 
 ***
@@ -400,53 +401,186 @@ Right now let's consider that we want to add some data to this map.
 
 
 
-##Getting non spatial data into QGIS
+## Getting non spatial data into QGIS
 
-So it's quite easy and intuitive to get spatial data in here. But non spatial data can only be mapped if it is linked with spatial information. The main way that this will happen, is that your non-spatial data will have some sort of spatial information still included with it. I will demonstrate here with some police recorded crime data, which can be downloaded from the [police.uk](https://data.police.uk/data/) website. 
+So it's quite easy and intuitive to get spatial data in here. But non spatial data can only be mapped if it is linked with spatial information. The main way that this will happen, is that your non-spatial data will have some sort of spatial information still included with it. Remember in the slides the country names column? Those names can be matched to the **polygons** for those countries. I will demonstrate here with some police recorded crime data, which can be downloaded from the [police.uk](https://data.police.uk/data/) website. 
 
 Let's stick local and download some data for crime in Manchester. 
 
-To do this, open the [data.police.uk/data](https://data.police.uk/data/) website. 
+To do this, open the [data.police.uk/data](https://data.police.uk/data/) website and follow instructions to download the data.  
 
 - In `Date range` just select June 2016 - June 2016
 - In `Force` find `Greater Manchester Police`, and tick the box next to it. 
 - In `Data sets` tick `Include crime data`.
 - Finally click on `Generate File` button.
 
-This will take you to a download page, where you have to click the `Download now` button. This will open a dialogue to save a .zip file. Navigate to the working directory folder you've readet and save it there. Unzip the file. 
-
-If you want you can have a look at this data in Excel or something. You will see that there are actually coordinated associated with this data. Let's ignore that for a second, and pretend that there are none. So then we would look for other types of information. Another column you might notice is the one called `LSOA code`. If you recall our variables in the LSOA boundary data file, one of these was `code`. So how will we map this data that is not spatial? You guessed it, by joining them up on a matching column!
+This will take you to a download page, where you have to click the `Download now` button. This will open a dialogue to save a .zip file. Navigate to the working directory folder you've created and save it there. 
 
 
-So to do this, let's get our non-spatial crime data into the QGIS environment. To do this we use the `Add Delimited Text Layer` button which will make a new window popup: 
+**Unzip the file.** 
+
+
+If you want you can have a look at this data in Excel:
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/crime_data.png)
+
+
+You will see that there are actually coordinates associated with this data. Let's ignore that for a second, and pretend that there is no spatial information here. Instead we have another column, which has another type of spatial information, similar to that of the country name in the slides. This column that you might notice is the one called `LSOA code`. If you recall our variables in the LSOA boundary data file, one of these was `code`. These match in the two data sets. So by linking the non-spatial data to the spatial data using these codes, you can put the data on a map! 
+
+
+OK let's say we want to map the number of crimes in each neighbouhood (neighburhood measured as LSOA ). For this we first want to create a frequency table. You may have encountered this in your data analysis courses or in Excel Q-step training, but just real quick, you should probably familiarise yourselves with pivot tables in excel. 
+
+
+## Creating a frequency table in Excel
+
+
+Making a frequency table in Excel is quite simple, and it is achieved by using something called a **pivot table**. As far as I know this name is specific to Excel. If you apply to public sector jobs, especially where excel is a requirement, the word pivot table is likely to come up in interview. It's a handy tool for summarising categorical data. A pivot table is a tool that lets you build different types of summary tables from your data. One of these is a frequency table. 
+
+> PivotTables are a great way to summarize, analyze, explore, and present your data, and you can create them with just a few clicks. PivotTables are highly flexible and can be quickly adjusted depending on how you need to display your results.
+
+- [The microsoft excel sales pitch](https://support.office.com/en-gb/article/Create-a-PivotTable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576)
+
+
+If you want to go a bit further in the pivot table knowledge, here's a handy list of [23 things you should know about pivot tables](https://exceljet.net/things-to-know-about-excel-pivot-tables). I like it because it's a list, and Buzzfeed has taught me that all information is best presented in list format, preferably with a random number of items in the list, like 23. We'll cover most of these items during the upcoming weeks.
+
+
+So for now, we will now use a pivot table to create a frequency table of the crime type variable in the GMP crimes data.  To do this, go to your gmp_crimes data set, opened up in Excel. Download the data from BB, as we did last week. If it's not downloading for any reason stick up your hand, we can come around and trouble shoot this for you! Now once you have the data open in Excel,  you can easily create a frequency table following the below steps:
+
+
+
+First you will have to select the pivot tabel option. Click into the **Insert** tab, click on **pivot table** and then again on **pivot table**:
+
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/click_pivot.png)
+
+
+
+
+This will open a popup window, where you want to make sure that you select 'New worksheet' where it asks where your pivot table should be placed, and then click OK: 
+
+
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/pivot_popup.png)
+
+
+
+
+Don't worry too much about the top option where you select your data, because the pivot table will let you select your variables retrospectively. But just make sure the 'Select table or range' option is selected, and not the 'use external data source one'. 
+
+
+
+Now when you click OK, excel should take you to the new worksheet where it has set up a pivot table for you, ready to get into your data. 
+
+
+
+It might also open a toolbar on the side, but it might not do this automatically. In any case, if the toolbar ever disappears, to summon it you have to do one simple step, which is to click *anywhere* inside the pivot tabe area: 
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/pivot_shell.png)
+
+
+Once you do that, a navigation pane should appear. Just like this: 
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/click_pivot_activate.gif)
+
+
+
+
+Now you should see all your variables on the side there as well, in this little panel that has just appeared. 
+
+
+You can scroll through and find the variable "LSOA code". This is the variable we want to look at in this case. 
+
+
+You can see four windows within the pivot table panel. You've got **Filters**, **Columns**, **Rows**, and **Values**. You can drag your variables into these boxes in order to create a table. Whatever you drag into the Columns box becomes the columns, and whatever you drag into the Rows box becomes the Rows. Try it out, drag "LSOA code" into the Rows box. You should see a list of all the possible values that the crime type variable can take in the rows. Now drag it over to columns box, and you'll see it across there. Drag it back to rows and leave it there:
+
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/ct_in_rows.png)
+
+
+
+While you see the list of possible crime types, there is no value next to it - it is not yet a frequency table. This is where you need the **Values** box on the pivot table toolbar. What you drag into there determines what values will be displayed. So now grab the "LSOA code" label from the top again, and drag down, this time to the values box, like this: 
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/ct_in_values.gif)
+
+You now have a table where each LSOA code has the number of crimes in that LSOA (neighbourhood) next to it. Save this as a csv by selecting "Save as..." 
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/saveas.png)
+
+
+and choosing .csv as the option: 
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/saveascsv.png)
+
+It might come up with a popup message, just select "save active sheet":
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/saveactivesheet.png)
+
+
+(there might be another popup just click "Continue"). 
+
+
+Make sure you know where you saved this data, and navigate there, and just open it up in excel to make sure everything looks OK. You want 2 column, one with the LSOA code, and one with the number of crimes. You might have an extra line at the top, like I do here: 
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/deletetoprow.png)
+
+
+If you do, just delete this row, and save the csv again. This is because the first row has to be the column names to be able to import to QGIS. And we want to do this, as we will now import it into the QGIS environment to join it up with our spatial data. 
+
+## Adding the non-spatial data (csv) to a map
+
+
+Get back into QGIS, and import the crime data.  To do this we use the `Add Delimited Text Layer` button which will make a new window popup: 
 
 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/add_delim_lyr.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/add_delim_lyr.png)
 
 ***
 
 
 
-Click on "Browse" button next to the "File Name" bar, and navigate to your .csv file. Select it, and then when you get back to this dialogue box, select "CSV" for "File format", and then on the "Geometry Definition" option, select "No geometry (attribute only table)". Like so: 
+Click on "Browse" button next to the "File Name" bar, and navigate to your .csv file. 
+
+
+
+***
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/browseforcsv.png)
+
+***
+
+
+
+Select it, and then when you get back to this dialogue box, select "CSV" for "File format", and then on the "Geometry Definition" option, select "No geometry (attribute only table)". Then click on "Add". Like so: 
 
 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/attr_only_tbl.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/addcsvlayer.png)
 
 
 ***
 
-Then click on "OK" and you will see your new attribute table appear in your layers window: 
+Then click on "Close" and you will see your new attribute table appear in your layers window: 
 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/attr_only_lyr.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/attr_only_lyr.png)
 
 
 ***
@@ -455,7 +589,11 @@ You can right click this, and select "Open Attribute Table" to see all the data 
 
 Now this is not spatial data. Unlike the shapefile, it does not appear on the map. It is only a table of data. For it to appear on the map, it needs to be joined to a spatial layer. We can do this because it has a matching column to an existing spatial layer that we have. 
 
-##Link non spatial data to shapefiles
+
+You see there are two columns, one with the LSOA codes called 
+
+
+## Link non spatial data to shapefiles
 
 So if we want to map our data, we need to join it to a shapefile. We can do this, as they have a matching column. 
 
@@ -464,7 +602,7 @@ To do this, double click the spatial layer `england_lsoa_2011`, and this time se
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/joins_plus.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/joins_plus.png)
 
 
 ***
@@ -476,7 +614,7 @@ This will open up a dialogue box where you have to select what you want to join 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/add_vector_join.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/add_vector_join.png)
 
 
 ***
@@ -487,117 +625,19 @@ Select the appropriate fields and click "OK". Then you will see the name of the 
 To check whether your join was successful, right click on the spatial layer and open the attribute table. You should see a whole load of new columns have appeared, all to do with crime. YAY!
 
 
-##Read in spatial points
-
-Now you must have noticed that our police data actually does have a latitude and longitude column. Because of this, we can actually read it in as spatial data. Let's give this a go. 
-
-To do so, again click on the `Add Delimited Text Layer` button. Again navigate to the downloaded police data, but this time, click the "Point coordinates" option under "Geometry definition". You can then select your X and Y coordinates. X should be the column for longitude, and Y the column for latitude.
+You can now use this to create a thematic map. 
 
 
-***
 
+## Create a thematic map
 
-![](/Users/reka/Desktop/QSTEP/imgs/add_pts_latlng.png)
+Now we want to visualise which neighbourhoods have more crimes and which have less. To do this navigate to the `Symbology` tab. 
 
 
 ***
 
 
-When you've specified all this, click OK and watch your points get added to the map!
-
-
-***
-
-![](/Users/reka/Desktop/QSTEP/imgs/see_pts.png)
-
-
-***
-
-You can see that the points cover a lot more area than what our polygon shapefile for Mancheser covers. This is because Greater Manchester Police cover... well Greater Manchester, which also includes for example Bolton and Bury as well. But let's say here we're only interested in those in the Borough of Manchester. In this case, our shapefile is just fine. If you were interested in all, you can go back, and when downloading the boundary data select all the boundaries that would be relevant. 
-
-You can also have a look at information about this layer, as you did with the boundary layers. If we look at the projection here, we see that it is actually *not* British National Grid, but is *WGS84*.
-
-
-***
-
-
-
-![](/Users/reka/Desktop/QSTEP/imgs/its_wsg84.png)
-
-
-***
-
-
-This is the coordinate system that anything with latitude/longitude coorinated will follow. If these were British National Grid points, we would expect the coordinated to be Eastings and Northings. 
-
-So what does this mean. Well actually our two spatial layers are on two different coordinate systems. This can cause problems when we try to carry out spatial manipulations, such as count the number of points in each neighbourhood. So before we move on to that, we need to do some reprojections. 
-
-##Reprojection
-
-So reprojection is very easy in QGIS. All you have to do, is double click on the layer you want to change, and select CRS, and select a new one from the dropdown menu. Sometimes however this has strange results, and also if you want to use this layer as such again, it might be worth saving a new spatial layer with your new projection. 
-
-To do this, right click on your layer name, and select "Save As..." This will open up a dialogue box. Select where to save, and give your new layer a name. Then on CRS, click on the dropdown menu, and select the project CRS, which is British National Grid:
-
-
-***
-
-
-![](/Users/reka/Desktop/QSTEP/imgs/save_as_bng.png)
-
-
-***
-
-Make sure you have selected "Add saved file to map" and then click OK. You will see your new layer appear, now in the same CRS as your boundary data. We can now count the numbers of these points (crimes) in each LSOA (neighbourhood).
-
-***
-
-![](/Users/reka/Desktop/QSTEP/imgs/bng_appears.png)
-
-
-***
-
-##Counting the number of points in a polygon
-
-OK so how many crimes are there in each neighbourhood? Well there is an easy way to answer this question, using the `points in polygon` function. You can find this under Vector > Analysis Tools > Points in Polygon...
-
-***
-
-![](/Users/reka/Desktop/QSTEP/imgs/points_in_poly.png)
-
-
-***
-
-
-Click this to open up a dialogue window. 
-
-Here you have to select the points you want to count, the polygon you want to count them in, and the name you want your count column to have. You then select where to save this new shapefile that will have the new column, and once you have that, click on "OK". Make sure that "add to canvas" is also checked. 
-
-***
-
-![](/Users/reka/Desktop/QSTEP/imgs/count_pts_in_poly.png)
-
-***
-
-Your new layer will have appeared in your window. 
-
-***
-
-![](/Users/reka/Desktop/QSTEP/imgs/crimes_lyr_appears.png)
-
-***
-
-Now let's clean this up a bit. If you click the blue box next to the layer name, you make that layer invisible. Untuck all the boxes except for our new `crimes_in_manchester` layer. We can now create a thematic map from this new crimes column, to have a look at which neighbourhoods (LSOAs) had higher volume of crimes in June 2016. Exciting!
-
-
-##Create a thematic map
-
-Now we want to visualise which neighbourhoods have more crimes and which have less. To do this, again double click the new `crimes_in_manchester` layer, and navigate to the `Style` tab. 
-
-
-***
-
-
-![](/Users/reka/Desktop/QSTEP/imgs/style_tab.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/style_tab.png)
 
 
 ***
@@ -605,30 +645,49 @@ Now we want to visualise which neighbourhoods have more crimes and which have le
 
 On the top dropdown menu, where it says "Single Symbol", select "Graduated". This means that you are choosing a continuous variable (numeric) to shade the neighbourhoods by. If you had a qualitative variable (categorical) then you would select the "Categorized" option. 
 
-Then, under "Column" select the variable you want to shade by. Here we select the "crimes" column. 
+Then, under "Column" select the variable you want to shade by. Here we select the "Total" column (might be called your table name + Total, so for me it's "lsoa_frequency_table_Total"):
+
+
+
+***
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/graduated_col.png)
+
+
+***
+
 
 
 Now at this point I want to draw your attention to the "Classes" and "Mode" options. These determine what your map will look like. Classes determined the number of groups you will have. Here we split the neighbourhoods into 5 groups. But if you are looking to rate something on a red amber green scale for example for police, you would want this to only have 3 categories. Similarly the Mode you choose will depend on what you want to say with your data. There is no right or wrong option, but it depends very much on the question you're asking. 
 
-So let's try using the 5 classes with the equal interval mode. To do this, select these options, and click on the "Classify" button on the left just under that (currently) blank window. You will now see the classes appear. Once they appeared, click "OK". Let's see
+So let's try using the 5 classes with the equal interval mode. To do this, select these options, and click on the "Classify" button on the left just under that (currently) blank window. You will now see the classes appear. Once they appeared, click "Apply" then "OK":
 
 
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/equal_interval.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/equalint.png)
 
 ***
+
+
+So now you should have a map. Does it look something like this: 
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/mcrmap.png)
 
 What story does this map tell? You can see that we have equal interval, the groups are broken up by 100 crimes. You can see that most neighbourhoods in Manchester have between 1-100 crimes. There are a few (you can see actually that they are the larger ones) that have between 100-199. And then you have city centre, where you have the majority of the crimes recorded. 
 
+Have a go at selecting the different classifications and see how your map changes! 
 
+
+<!--
 Let's look at using equal count (quantiles) as your Mode. This splits your neighbourhoods into 5 equal groups. If you used three groups, this would be your low-medium-hihg groups. This way it's more like lowest-lower-medium-higher-highest groups. 
 
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/quantile.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/quantile.png)
 
 
 ***
@@ -648,7 +707,7 @@ Now if everything went well, then you should have some new columns in your attri
 
 
 ***
-![](/Users/reka/Desktop/QSTEP/imgs/new_attr_tbl.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/new_attr_tbl.png)
 
 ***
 
@@ -660,7 +719,7 @@ Now the final step is to create a new column, by manipulating our existing colum
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/abacus.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/abacus.png)
 
 ***
 
@@ -674,7 +733,7 @@ Now we have a few issues. Firstly, the population variable, is unhelpfully not a
 
 
 ***
-![](/Users/reka/Desktop/QSTEP/imgs/pop_num_title.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/pop_num_title.png)
 ***
 
 
@@ -688,7 +747,7 @@ So to do this we need to be removing the ",". We can do this using the replace()
 
 like so: 
 ***
-![](/Users/reka/Desktop/QSTEP/imgs/pop_num_calc.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/pop_num_calc.png)
 
 ***
 
@@ -700,7 +759,7 @@ So now you have a new variable. And we can use this to calculate a crime rate. O
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/crime_rate_calc.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/crime_rate_calc.png)
 
 ***
 
@@ -712,19 +771,130 @@ Now, you can go back to the Style tab, and use this new crime_rate variable to c
 It should look something like this: 
 
 ***
-![](/Users/reka/Desktop/QSTEP/imgs/final_map.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/final_map.png)
 
 
 ***
 Does that look different? Well this is up to you, the researcher to discuss!
 
 
-##Saving your map
+-->
+
+## Read in spatial points
+
+Now we mentioned earlier that our police data actually does have a latitude and longitude column. Because of this, we can actually read it in as spatial data. Let's give this a go. 
+
+To do so, again click on the `Add Delimited Text Layer` button. This time navigate to the downloaded police data, and this time, click the "Point coordinates" option under "Geometry definition". You can then select your X and Y coordinates. **X should be the column for longitude, and Y the column for latitude.**
+
+
+***
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/add_pts_latlng.png)
+
+
+***
+
+
+When you've specified all this, click "Add" and watch your points get added to the map!
+
+
+***
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/see_pts.png)
+
+
+***
+
+You can see that the points cover a lot more area than what our polygon shapefile for Mancheser covers. This is because Greater Manchester Police cover... well Greater Manchester, which also includes for example Bolton and Bury as well. But let's say here we're only interested in those in the Borough of Manchester. In this case, our shapefile is just fine. If you were interested in all, you can go back, and when downloading the boundary data select all the boundaries that would be relevant. 
+
+
+<!--
+
+You can also have a look at information about this layer, as you did with the boundary layers. If we look at the projection here, we see that it is actually *not* British National Grid, but is *WGS84*.
+
+
+***
+
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/its_wsg84.png)
+
+
+***
+
+
+This is the coordinate system that anything with latitude/longitude coorinated will follow. If these were British National Grid points, we would expect the coordinated to be Eastings and Northings. 
+
+So what does this mean. Well actually our two spatial layers are on two different coordinate systems. This can cause problems when we try to carry out spatial manipulations, such as count the number of points in each neighbourhood. So before we move on to that, we need to do some reprojections. 
+
+##Reprojection
+
+So reprojection is very easy in QGIS. All you have to do, is double click on the layer you want to change, and select CRS, and select a new one from the dropdown menu. Sometimes however this has strange results, and also if you want to use this layer as such again, it might be worth saving a new spatial layer with your new projection. 
+
+To do this, right click on your layer name, and select "Save As..." This will open up a dialogue box. Select where to save, and give your new layer a name. Then on CRS, click on the dropdown menu, and select the project CRS, which is British National Grid:
+
+
+***
+
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/save_as_bng.png)
+
+
+***
+
+Make sure you have selected "Add saved file to map" and then click OK. You will see your new layer appear, now in the same CRS as your boundary data. We can now count the numbers of these points (crimes) in each LSOA (neighbourhood).
+
+***
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/bng_appears.png)
+
+
+***
+
+
+<!--
+##Counting the number of points in a polygon
+
+OK so how many crimes are there in each neighbourhood? Well there is an easy way to answer this question, using the `points in polygon` function. You can find this under Vector > Analysis Tools > Points in Polygon...
+
+***
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/points_in_poly.png)
+
+
+***
+
+
+Click this to open up a dialogue window. 
+
+Here you have to select the points you want to count, the polygon you want to count them in, and the name you want your count column to have. You then select where to save this new shapefile that will have the new column, and once you have that, click on "OK". Make sure that "add to canvas" is also checked. 
+
+***
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/count_pts_in_poly.png)
+
+***
+
+Your new layer will have appeared in your window. 
+
+***
+
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/crimes_lyr_appears.png)
+
+***
+
+Now let's clean this up a bit. If you click the blue box next to the layer name, you make that layer invisible. Untuck all the boxes except for our new `crimes_in_manchester` layer. We can now create a thematic map from this new crimes column, to have a look at which neighbourhoods (LSOAs) had higher volume of crimes in June 2016. Exciting!
+
+-->
+
+
+## Saving your map
 Anyway that is all I have for you now. You will of course also have to save your map. For this you can use the print composer. You open that by clicking this icon:
 
 ***
 
-![](/Users/reka/Desktop/QSTEP/imgs/print_comp.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/print_comp.png)
 
 ***
 
@@ -736,14 +906,14 @@ You should probably watch that, but just as a note here are some useful buttons:
 ***
 
 
-![](/Users/reka/Desktop/QSTEP/imgs/print_comp_labels.png)
+![](/Users/reka/Dropbox (The University of Manchester)/teaching/QSTEP/imgs/print_comp_labels.png)
 
 
 ***
 
 
 
-#Parting words
+# Parting words
 
 As I said at the beginning there is loads of help online for QGIS. If you want to know how to do something, just google it. For example, if you want to know how to make a heatmap in QGIS, just google "HOW TO MAKE A HEATMAP IN QGIS" and I guarantee that you will find a nice step-by-step tutorial to follow online. 
 
